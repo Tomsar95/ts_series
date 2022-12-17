@@ -1,3 +1,4 @@
+import 'package:tv_series/features/core/functions/general_functions.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 
 class SeriesModel extends Series {
@@ -6,8 +7,8 @@ class SeriesModel extends Series {
     required String name,
     required String airDate,
     required String overview,
-    required String backdropPath,
-    required String posterPath,
+    String? backdropPath,
+    String? posterPath,
     required double voteAverage,
 }) : super (
     name : name,
@@ -23,8 +24,8 @@ class SeriesModel extends Series {
       name: json['name'] ?? '',
       airDate: json['first_air_date'] ?? '',
       overview: json['overview'] ?? '',
-      backdropPath: json['backdrop_path'] ?? '',
-      posterPath: json['poster_path'] ?? '',
+      backdropPath: GeneralFunctions.setImageRoute(json['backdrop_path']),
+      posterPath: GeneralFunctions.setImageRoute(json['poster_path']),
       voteAverage: json['vote_average'].toDouble(),
     );
   }

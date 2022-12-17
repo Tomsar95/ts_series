@@ -38,7 +38,6 @@ class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
       final Map<String, dynamic> jsonMap =
       json.decode(response.body);
       Iterable i = jsonMap['results'];
-      i.map((series) => SeriesModel.fromJson(series)).toList();
       return i.map((series) => SeriesModel.fromJson(series)).toList();
     } else {
       throw ServerException('Bad Status Code');
