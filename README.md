@@ -4,13 +4,12 @@ mobile app to get info of famous TV series
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+ts_series
 
-A few resources to get you started if this is your first Flutter project:
+This is a test containing a Flutter app that allows you to visualize information about trending tv series
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project was created using Flutter version 3.3.9 with Dart 2.15.0
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The API that provides all series data is from themoviedb.org
+
+The project was build using TDD (just in 3 specific cases in order to pass the technology test), clean architecture and BLoc for state managment.
