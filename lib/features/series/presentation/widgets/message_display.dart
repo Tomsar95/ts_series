@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tv_series/features/core/utils/text_styles.dart';
 
 class MessageDisplay extends StatelessWidget {
   final String message;
@@ -11,7 +12,7 @@ class MessageDisplay extends StatelessWidget {
       child: Center(
         child: Text(
           message,
-          style: const TextStyle(fontSize: 25),
+          style: CustomTextStyles.gilroyLight,
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
         ),

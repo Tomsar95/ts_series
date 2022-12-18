@@ -10,6 +10,8 @@ abstract class SeriesRemoteDataSource {
 
   Future<List<Series>> getPopularSeries();
 
+  Future<List<Series>> getRecommendedSeries();
+
   Future<Series> getSeriesDetails(int seriesId);
 
 }
@@ -22,6 +24,11 @@ class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
   @override
   Future<List<Series>> getPopularSeries() {
     return _getSeriesFromUrl('${Utils.root}/tv/popular?api_key=${Utils.apiKey}&language=en-US&page=1}');
+  }
+
+  @override
+  Future<List<Series>> getRecommendedSeries() {
+    return _getSeriesFromUrl('${Utils.root}/tv/top_rated?api_key=${Utils.apiKey}&language=en-US&page=1}');
   }
 
   @override
@@ -38,7 +45,6 @@ class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
       final Map<String, dynamic> jsonMap =
       json.decode(response.body);
       Iterable i = jsonMap['results'];
-      i.map((series) => SeriesModel.fromJson(series)).toList();
       return i.map((series) => SeriesModel.fromJson(series)).toList();
     } else {
       throw ServerException('Bad Status Code');

@@ -12,7 +12,9 @@ import 'package:tv_series/features/login/presentation/blocs/login_bloc/login_blo
 import 'package:tv_series/features/series/data/datasources/series_remote_data_source.dart';
 import 'package:tv_series/features/series/data/repositories/series_repository_impl.dart';
 import 'package:tv_series/features/series/domain/repositories/series_repository.dart';
-import 'package:tv_series/features/series/domain/use_cases/get_series.dart';
+import 'package:tv_series/features/series/domain/use_cases/get_popular_series.dart';
+import 'package:tv_series/features/series/domain/use_cases/get_recommended_series.dart';
+import 'package:tv_series/features/series/presentation/blocs/favorites_page_bloc/favorites_page_bloc.dart';
 import 'package:tv_series/features/series/presentation/blocs/home_page_bloc/home_page_bloc.dart';
 
 import 'features/core/network/network_info.dart';
@@ -32,13 +34,15 @@ Future<void> init() async {
 void initFeatures() {
   // BLoC
   serviceLocator.registerFactory(() => LoginBloc(getUser: serviceLocator(), setUser: serviceLocator(), tryToAuthenticate: serviceLocator()));
-  serviceLocator.registerFactory(() => HomePageBloc(getSeries: serviceLocator()));
+  serviceLocator.registerFactory(() => HomePageBloc(getPopularSeries: serviceLocator(), getRecommendedSeries: serviceLocator()));
+  serviceLocator.registerFactory(() => FavoritesPageBloc());
 
   // Use Cases
   serviceLocator.registerLazySingleton(() => GetUser(serviceLocator()));
   serviceLocator.registerLazySingleton(() => SetUser(serviceLocator()));
   serviceLocator.registerLazySingleton(() => TryToAuthenticate(serviceLocator()));
-  serviceLocator.registerLazySingleton(() => GetSeries(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetPopularSeries(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetRecommendedSeries(serviceLocator()));
 
   // Repository
   serviceLocator.registerLazySingleton<UserRepository>(() =>

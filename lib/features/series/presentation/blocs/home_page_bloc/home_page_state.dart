@@ -15,8 +15,9 @@ class HomePageInitial extends HomePageState {
 class LoadedSeriesState extends HomePageState {
 
   final List<Series>? listOfPopularSeries;
+  final List<Series>? listOfRecommendedSeries;
 
-  LoadedSeriesState({this.listOfPopularSeries});
+  LoadedSeriesState({this.listOfPopularSeries, this.listOfRecommendedSeries});
 
   @override
   List<Object> get props => [];

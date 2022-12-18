@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/login/presentation/blocs/login_bloc/login_bloc.dart';
 
@@ -44,7 +44,7 @@ Widget buildSignUpButton(BuildContext context) {
     child: TextButton(
       style: ButtonStyle(
         backgroundColor:
-        MaterialStateProperty.all<Color>(GeneralColors.yellow),
+        MaterialStateProperty.all<Color>(CustomColors.yellow),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24.0),
@@ -57,7 +57,7 @@ Widget buildSignUpButton(BuildContext context) {
           child: Text(
             'Sign up',
             style: CustomTextStyles.gilroyLight
-                .copyWith(color: GeneralColors.black, fontSize: 20),
+                .copyWith(color: CustomColors.black, fontSize: 20),
           ),
         ),
       ),
@@ -71,7 +71,7 @@ Widget buildLogInButton(BuildContext context) {
     child: TextButton(
       style: ButtonStyle(
         backgroundColor:
-        MaterialStateProperty.all<Color>(GeneralColors.white),
+        MaterialStateProperty.all<Color>(CustomColors.white),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24.0),
@@ -83,7 +83,7 @@ Widget buildLogInButton(BuildContext context) {
         child: Center(
           child: Text('Log in',
               style: CustomTextStyles.gilroyLight
-                  .copyWith(color: GeneralColors.black, fontSize: 20)),
+                  .copyWith(color: CustomColors.black, fontSize: 20)),
         ),
       ),
     ),

@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/features/core/utils/assets.dart';
 import 'package:tv_series/features/core/utils/custom_navigator.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/core/utils/utils.dart';
-import 'package:tv_series/features/login/domain/entities/user.dart';
 import 'package:tv_series/features/login/presentation/blocs/login_bloc/login_bloc.dart';
 import 'package:tv_series/features/login/presentation/widgets/widgets.dart';
 import 'package:tv_series/injection_container.dart';
@@ -25,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: GeneralColors.black,
+      backgroundColor: CustomColors.black,
       body: buildBody(context),
     );
   }
