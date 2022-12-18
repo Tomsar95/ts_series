@@ -11,7 +11,17 @@ class SeriesRepositoryImpl implements SeriesRepository {
   SeriesRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<Either<Failure, List<Series>>> getSeries() async {
+  Future<Either<Failure, List<Series>>> getPopularSeries() async {
+    try {
+      final seriesList = await remoteDataSource.getPopularSeries();
+      return Right(seriesList);
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Series>>> getRecommendedSeries() async {
     try {
       final seriesList = await remoteDataSource.getPopularSeries();
       return Right(seriesList);

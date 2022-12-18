@@ -24,8 +24,8 @@ class SeriesModel extends Series {
       name: json['name'] ?? '',
       airDate: json['first_air_date'] ?? '',
       overview: json['overview'] ?? '',
-      backdropPath: GeneralFunctions.setImageRoute(json['backdrop_path']),
-      posterPath: GeneralFunctions.setImageRoute(json['poster_path']),
+      backdropPath: GeneralFunctions.setImageRouteBG(json['backdrop_path']),
+      posterPath: GeneralFunctions.setImageRouteCard(json['poster_path']),
       voteAverage: json['vote_average'].toDouble(),
     );
   }

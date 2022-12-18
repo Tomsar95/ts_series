@@ -8,4 +8,12 @@ class GeneralColors {
   static const Color yellow = Color(0xFFFFD233);
   static const Color lightGray = Color(0xFFf1f2f3);
   static const Color darkGray = Color(0xFF8C8C8C);
+  static const Color darkerGray = Colors.black12;
+
+  static const Gradient backGroundGradient =  LinearGradient(
+    colors: [GeneralColors.softBlack, GeneralColors.darkerGray],
+    stops: [0.5,1],
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
+  );
 }

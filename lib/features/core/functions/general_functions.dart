@@ -2,9 +2,14 @@ import 'package:tv_series/features/core/utils/utils.dart';
 
 class GeneralFunctions {
 
-  static String? setImageRoute(String? initialPAth){
+  static String? setImageRouteCard(String? initialPAth){
     if(initialPAth == null) return null;
-    return '${Utils.imagesRoot}$initialPAth';
+    return '${Utils.imagesRootCards}$initialPAth';
+  }
+
+  static String? setImageRouteBG(String? initialPAth){
+    if(initialPAth == null) return null;
+    return '${Utils.imagesRootBG}$initialPAth';
   }
 
 }
