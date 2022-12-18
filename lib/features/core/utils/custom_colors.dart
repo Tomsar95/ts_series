@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GeneralColors {
+class CustomColors {
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
   static const Color black = Colors.black;
@@ -11,7 +11,7 @@ class GeneralColors {
   static const Color darkerGray = Colors.black12;
 
   static const Gradient backGroundGradient =  LinearGradient(
-    colors: [GeneralColors.softBlack, GeneralColors.darkerGray],
+    colors: [CustomColors.softBlack, CustomColors.darkerGray],
     stops: [0.5,1],
     begin: Alignment.bottomCenter,
     end: Alignment.topCenter,

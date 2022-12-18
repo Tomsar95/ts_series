@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 import 'package:tv_series/features/series/presentation/widgets/widgets.dart';
 
 Widget buildRecommendedScroll(List<Series> series, BuildContext context, ScrollController controller) {
-  return ListView.builder(
-    scrollDirection: Axis.vertical,
-    controller: controller,
-    itemCount: series.length,
-    itemBuilder: (context, index) {
-      return popularSeriesHorizontalCard(series ,context, index);
-    },
+  return Flexible(
+    child: ListView.builder(
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      controller: controller,
+      itemCount: series.length,
+      itemBuilder: (context, index) {
+        return recommendedSeriesHorizontalCard(series ,context, index);
+      },
+    ),
   );
 }
 
-Widget popularSeriesHorizontalCard(List<Series> series,BuildContext context, int index) {
+Widget recommendedSeriesHorizontalCard(List<Series> series,BuildContext context, int index) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 28.0),
     child: Row(
@@ -55,17 +58,26 @@ Widget popularSeriesHorizontalCard(List<Series> series,BuildContext context, int
                 ignoreGestures: true,
                 itemPadding:
                 const EdgeInsets.symmetric(horizontal: 2.0),
-                unratedColor: GeneralColors.darkGray,
+                unratedColor: CustomColors.darkGray,
                 itemSize: 11,
                 allowHalfRating: true,
                 itemBuilder: (context, _) => const Icon(
                   Icons.star_outlined,
-                  color: GeneralColors.lightGray,
+                  color: CustomColors.lightGray,
                 ),
                 onRatingUpdate: (double value) {},
               ),
               const SizedBox(height: 15,),
-              buildWatchButton(context, 14, 100),
+              SizedBox(
+                width: 180,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buildWatchButton(context, 14, 100),
+                    AddToFavorites(context: context, series: series[index])
+                  ],
+                ),
+              ),
             ],
           ),
         )
@@ -78,7 +90,7 @@ BoxDecoration setDecoration(String? imgPath) {
   if (imgPath == null) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(18.0),
-      color: GeneralColors.black,
+      color: CustomColors.black,
     );
   } else {
     return BoxDecoration(

@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
-import 'package:tv_series/features/series/presentation/widgets/headers.dart';
+import 'package:tv_series/features/series/presentation/widgets/secondary_header.dart';
 import 'package:tv_series/features/series/presentation/widgets/widgets.dart';
 
 class PopularSeriesCarouselPage extends StatefulWidget {
@@ -36,7 +36,7 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: GeneralColors.transparent,
+      backgroundColor: CustomColors.transparent,
       body: Stack(
         children: [
           Container(
@@ -46,7 +46,7 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
               filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
               child: Container(
                 decoration:
-                    BoxDecoration(color: GeneralColors.black.withOpacity(0.5)),
+                    BoxDecoration(color: CustomColors.black.withOpacity(0.5)),
               ),
             ),
           ),
@@ -97,12 +97,12 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
             ignoreGestures: true,
             itemPadding:
             const EdgeInsets.symmetric(horizontal: 2.0),
-            unratedColor: GeneralColors.darkerGray.withOpacity(0.8),
+            unratedColor: CustomColors.darkerGray.withOpacity(0.8),
             itemSize: 17,
             allowHalfRating: true,
             itemBuilder: (context, _) => const Icon(
               Icons.star_outlined,
-              color: GeneralColors.darkGray,
+              color: CustomColors.darkGray,
             ),
             onRatingUpdate: (double value) {},
           ),
@@ -110,7 +110,7 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
         Padding(
           padding: const EdgeInsets.only(bottom: 12.0),
           child: Text('IMBd: ${currentPopularSeries[currentPosition].voteAverage}', style: CustomTextStyles.gilroyLight
-              .copyWith(color: GeneralColors.darkGray, fontSize: 14),),
+              .copyWith(color: CustomColors.darkGray, fontSize: 14),),
         ),
         buildWatchButton(context, null, null),
       ],
@@ -148,12 +148,12 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
     if (imgPath == null) {
       return BoxDecoration(
         borderRadius: BorderRadius.circular(40.0),
-        gradient: GeneralColors.backGroundGradient,
+        gradient: CustomColors.backGroundGradient,
       );
     } else {
       return BoxDecoration(
           borderRadius: BorderRadius.circular(40.0),
-          gradient: GeneralColors.backGroundGradient,
+          gradient: CustomColors.backGroundGradient,
           image:
               DecorationImage(image: NetworkImage(imgPath), fit: BoxFit.cover));
     }

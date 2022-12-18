@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tv_series/features/core/utils/custom_arguments.dart';
 import 'package:tv_series/features/core/utils/custom_navigator.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 
@@ -31,11 +31,11 @@ Widget buildPopularScroll(List<Series> series, BuildContext context, ScrollContr
             Text(
               'See All',
               style: CustomTextStyles.gilroyLightTitle
-                  .copyWith(fontSize: 20, color: GeneralColors.yellow),
+                  .copyWith(fontSize: 20, color: CustomColors.yellow),
             ),
             const Icon(
               Icons.navigate_next,
-              color: GeneralColors.yellow,
+              color: CustomColors.yellow,
               size: 26,
             ),
           ],
@@ -84,12 +84,12 @@ Widget popularSeriesVerticalCard(List<Series> series,BuildContext context, int i
               ignoreGestures: true,
               itemPadding:
               const EdgeInsets.symmetric(horizontal: 2.0),
-              unratedColor: GeneralColors.darkGray,
+              unratedColor: CustomColors.darkGray,
               itemSize: 11,
               allowHalfRating: true,
               itemBuilder: (context, _) => const Icon(
                 Icons.star_outlined,
-                color: GeneralColors.lightGray,
+                color: CustomColors.lightGray,
               ),
               onRatingUpdate: (double value) {},
             ),
@@ -104,7 +104,7 @@ BoxDecoration setDecoration(String? imgPath) {
   if (imgPath == null) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(18.0),
-      color: GeneralColors.black,
+      color: CustomColors.black,
     );
   } else {
     return BoxDecoration(

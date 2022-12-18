@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 
 Widget buildSecondaryHeader({required Function() navigationFunction, required String title, IconData? icon, Function()? secondaryFn}){
@@ -23,7 +23,7 @@ Widget buildSecondaryHeader({required Function() navigationFunction, required St
                 padding: EdgeInsets.only(right: 24.0),
                 child: Icon(
                   Icons.arrow_back_ios_new_outlined,
-                  color: GeneralColors.lightGray,
+                  color: CustomColors.lightGray,
                   size: 26,
                 ),
               )),
@@ -38,7 +38,7 @@ Widget buildSecondaryHeader({required Function() navigationFunction, required St
                 padding: const EdgeInsets.only(right: 24.0),
                 child: Icon(
                   icon,
-                  color: GeneralColors.lightGray,
+                  color: CustomColors.lightGray,
                   size: 26,
                 ),
               )) : const SizedBox(width: 30,),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 
 Widget buildWatchButton(BuildContext context, double? fontSize, double? width ) {
@@ -8,7 +8,7 @@ Widget buildWatchButton(BuildContext context, double? fontSize, double? width ) 
   return TextButton(
     style: ButtonStyle(
       backgroundColor:
-      MaterialStateProperty.all<Color>(GeneralColors.yellow),
+      MaterialStateProperty.all<Color>(CustomColors.yellow),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24.0),
@@ -21,7 +21,7 @@ Widget buildWatchButton(BuildContext context, double? fontSize, double? width ) 
         child: Text(
           'Watch Now',
           style: CustomTextStyles.gilroyLight
-              .copyWith(color: GeneralColors.black, fontSize: newFontSize),
+              .copyWith(color: CustomColors.black, fontSize: newFontSize),
         ),
       ),
     ),

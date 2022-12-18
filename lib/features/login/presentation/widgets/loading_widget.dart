@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 
 Widget loading() {
   return const Center(
@@ -7,7 +7,7 @@ Widget loading() {
       height: 30,
       width: 30,
       child: CircularProgressIndicator(
-        color: GeneralColors.yellow,
+        color: CustomColors.yellow,
       ),
     ),
   );

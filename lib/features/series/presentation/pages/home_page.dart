@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/features/core/utils/custom_navigator.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
-import 'package:tv_series/features/core/utils/text_styles.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/utils.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 import 'package:tv_series/features/series/presentation/blocs/home_page_bloc/home_page_bloc.dart';
@@ -78,45 +77,18 @@ class _BuildViewState extends State<BuildView> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 40.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const SizedBox(width: 30.0),
-                Text(
-                  'Home',
-                  style: CustomTextStyles.gilroyLightTitle.copyWith(fontSize: 20),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                        onTap: () {
-                          _closeSession();
-                        },
-                        child: const Icon(
-                          Icons.settings_outlined,
-                          color: GeneralColors.darkGray,
-                          size: 30,
-                        )),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          buildPrincipalHeader(label: 'Home', callBack: _closeSession),
           buildTitle('Popular'),
           listOfPopularSeries != null
               ? buildPopularScroll(listOfPopularSeries!, context, _scrollControllerPopularSeries)
               : scrollPlaceHolder(context),
           const Padding(
             padding: EdgeInsets.only( right: 20.0),
-            child: Divider(color: GeneralColors.darkGray),
+            child: Divider(color: CustomColors.darkGray),
           ),
           buildTitle('Recommendations'),
           listOfPopularSeries != null
-              ? Expanded(child: buildRecommendedScroll(listOfRecommendedSeries!, context, _scrollControllerPopularSeries))
+              ? buildRecommendedScroll(listOfRecommendedSeries!, context, _scrollControllerPopularSeries)
               : scrollPlaceHolder(context),
         ],
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/login/domain/entities/user.dart';
 import 'package:tv_series/features/login/presentation/blocs/login_bloc/login_bloc.dart';
@@ -43,7 +43,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.5,
         decoration: BoxDecoration(
-            color: GeneralColors.black.withOpacity(0.75),
+            color: CustomColors.black.withOpacity(0.75),
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(40), topRight: Radius.circular(40))),
         child: Column(
@@ -63,7 +63,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
                   ),
                   controller: nameController,
                   style: CustomTextStyles.gilroyLight
-                      .copyWith(color: GeneralColors.white)),
+                      .copyWith(color: CustomColors.white)),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -75,7 +75,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
                   controller: passwordController,
                   obscureText: true,
                   style: CustomTextStyles.gilroyLight
-                      .copyWith(color: GeneralColors.white)),
+                      .copyWith(color: CustomColors.white)),
             ),
             const SizedBox(
               height: 30,
@@ -101,7 +101,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
           );
           return Center(
               child: Material(
-                color: GeneralColors.black.withOpacity(0.8),
+                color: CustomColors.black.withOpacity(0.8),
                 child: SizedBox(
                   width: 500,
                   height: 350,
@@ -115,7 +115,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
                         width: 80,
                         child: Icon(
                           Icons.error_outline,
-                          color: GeneralColors.yellow,
+                          color: CustomColors.yellow,
                           size: 80,
                         ),
                       ),
@@ -124,7 +124,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
                         '¡Incorrect email or password!',
                         style: CustomTextStyles.gilroyLight.copyWith(
                           fontSize: 20,
-                          color: GeneralColors.yellow,
+                          color: CustomColors.yellow,
                           height: 1,
                         ),
                       ),
@@ -141,7 +141,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
       child: TextButton(
         style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all<Color>(GeneralColors.white),
+              MaterialStateProperty.all<Color>(CustomColors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24.0),
@@ -153,7 +153,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
           child: Center(
             child: Text('Log in',
                 style: CustomTextStyles.gilroyLight
-                    .copyWith(color: GeneralColors.black, fontSize: 20)),
+                    .copyWith(color: CustomColors.black, fontSize: 20)),
           ),
         ),
       ),
@@ -171,7 +171,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
             },
             child: const Icon(
               Icons.close,
-              color: GeneralColors.darkGray,
+              color: CustomColors.darkGray,
               size: 30,
             ),
           )),
@@ -182,7 +182,7 @@ class _LoginDataEntryState extends State<LoginDataEntry> {
     context.read<LoginBloc>().add(OnLoginEvent(
       context: context,
         user: User(
-            name: nameController.text ?? '',
-            password: passwordController.text ?? '')));
+            name: nameController.text,
+            password: passwordController.text)));
   }
 }

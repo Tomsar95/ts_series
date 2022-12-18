@@ -14,6 +14,7 @@ import 'package:tv_series/features/series/data/repositories/series_repository_im
 import 'package:tv_series/features/series/domain/repositories/series_repository.dart';
 import 'package:tv_series/features/series/domain/use_cases/get_popular_series.dart';
 import 'package:tv_series/features/series/domain/use_cases/get_recommended_series.dart';
+import 'package:tv_series/features/series/presentation/blocs/favorites_page_bloc/favorites_page_bloc.dart';
 import 'package:tv_series/features/series/presentation/blocs/home_page_bloc/home_page_bloc.dart';
 
 import 'features/core/network/network_info.dart';
@@ -34,6 +35,7 @@ void initFeatures() {
   // BLoC
   serviceLocator.registerFactory(() => LoginBloc(getUser: serviceLocator(), setUser: serviceLocator(), tryToAuthenticate: serviceLocator()));
   serviceLocator.registerFactory(() => HomePageBloc(getPopularSeries: serviceLocator(), getRecommendedSeries: serviceLocator()));
+  serviceLocator.registerFactory(() => FavoritesPageBloc());
 
   // Use Cases
   serviceLocator.registerLazySingleton(() => GetUser(serviceLocator()));

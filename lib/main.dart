@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tv_series/features/core/utils/custom_navigator.dart';
-import 'package:tv_series/features/core/utils/general_colors.dart';
+import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/login/presentation/pages/login_screen.dart';
 import 'injection_container.dart' as di;
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'TV Series',
-      theme: ThemeData(primaryColor: GeneralColors.black),
+      theme: ThemeData(primaryColor: CustomColors.black),
       home: const LoginScreen(),
       onGenerateRoute: CustomNavigator.routes,
       onUnknownRoute: (_) => defaultRoute(const LoginScreen()),

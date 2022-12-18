@@ -1,4 +1,6 @@
 
+import 'package:tv_series/features/series/domain/entities/series.dart';
+
 class Utils {
   static const String root = 'https://api.themoviedb.org/3';
   static const String apiKey = '34690d6d4de310b08b50fba594862be9';
@@ -6,4 +8,5 @@ class Utils {
   static const String imagesRootBG = 'https://image.tmdb.org/t/p/original';
 
   static bool mustReset =  false;
+  static List<Series> favoriteSeries = [];
 }
