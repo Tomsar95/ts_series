@@ -7,41 +7,44 @@ import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 
 Widget buildPopularScroll(List<Series> series, BuildContext context, ScrollController controller) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      SizedBox(
-        height: 316.0,
-        width: MediaQuery.of(context).size.width,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          controller: controller,
-          itemCount: series.length,
-          itemBuilder: (context, index) {
-            return popularSeriesVerticalCard(series ,context, index);
-          },
+  return Padding(
+    padding: const EdgeInsets.only(left:20.0),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          height: 316.0,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            controller: controller,
+            itemCount: series.length,
+            itemBuilder: (context, index) {
+              return popularSeriesVerticalCard(series ,context, index);
+            },
+          ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(bottom: 10.0, right: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              'See All',
-              style: CustomTextStyles.gilroyLightTitle
-                  .copyWith(fontSize: 20, color: CustomColors.yellow),
-            ),
-            const Icon(
-              Icons.navigate_next,
-              color: CustomColors.yellow,
-              size: 26,
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10.0, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'See All',
+                style: CustomTextStyles.gilroyLightTitle
+                    .copyWith(fontSize: 20, color: CustomColors.yellow),
+              ),
+              const Icon(
+                Icons.navigate_next,
+                color: CustomColors.yellow,
+                size: 26,
+              ),
+            ],
+          ),
         ),
-      ),
-    ],
+      ],
+    ),
   );
 }
 

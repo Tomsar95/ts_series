@@ -25,8 +25,8 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
         late bool popularSuccess;
         late bool recommendedSuccess;
         late String errorMsg = '';
-        List<Series> popularSeries = [];
-        List<Series> recommendedSeries = [];
+        List<Series>? popularSeries;
+        List<Series>? recommendedSeries;
 
         emit(HomePageInitial(isLoading: true));
         final popularSeriesOrFailure = await getPopularSeries(NoParams());

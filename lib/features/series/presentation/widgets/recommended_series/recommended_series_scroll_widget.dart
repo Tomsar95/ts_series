@@ -21,7 +21,7 @@ Widget buildRecommendedScroll(List<Series> series, BuildContext context, ScrollC
 
 Widget recommendedSeriesHorizontalCard(List<Series> series,BuildContext context, int index) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 28.0),
+    padding: const EdgeInsets.only(bottom: 28.0, left: 20),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [

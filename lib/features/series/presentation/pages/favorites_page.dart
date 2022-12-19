@@ -4,7 +4,7 @@ import 'package:tv_series/features/core/utils/custom_navigator.dart';
 import 'package:tv_series/features/core/utils/utils.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 import 'package:tv_series/features/series/presentation/blocs/favorites_page_bloc/favorites_page_bloc.dart';
-import 'package:tv_series/features/series/presentation/widgets/favorite_series_scroll_widget.dart';
+import 'package:tv_series/features/series/presentation/widgets/favorite_series/favorite_series_scroll_widget.dart';
 import 'package:tv_series/features/series/presentation/widgets/widgets.dart';
 import 'package:tv_series/injection_container.dart';
 
@@ -68,7 +68,7 @@ class _BuildViewState extends State<BuildView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 2.0, left: 20),
+      padding: const EdgeInsets.only(top: 2.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -86,5 +86,3 @@ class _BuildViewState extends State<BuildView> {
   }
 }
 
-
-//Divider(color: CustomColors.darkGray),

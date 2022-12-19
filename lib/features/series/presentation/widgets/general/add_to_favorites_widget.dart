@@ -6,9 +6,9 @@ import 'package:tv_series/features/series/domain/entities/series.dart';
 class AddToFavorites extends StatefulWidget {
   final BuildContext context;
   final Series series;
-  final bool isDisabled;
+  final bool isDark;
 
-  const AddToFavorites({Key? key, required this.context, required this.series, this.isDisabled = false})
+  const AddToFavorites({Key? key, required this.context, required this.series, this.isDark = false})
       : super(key: key);
 
   @override
@@ -31,23 +31,19 @@ class _AddToFavoritesState extends State<AddToFavorites> {
     if (isFavorite) {
       return GestureDetector(
           onTap: () {
-            if(!widget.isDisabled){
-              _removeFromFavorites(context, widget.series);
-              setState(() {});
-            }
+            _removeFromFavorites(context, widget.series);
+            setState(() {});
           },
           child: Icon(
             Icons.favorite,
-            color: widget.isDisabled ? CustomColors.yellow.withOpacity(0.3) : CustomColors.yellow,
+            color: widget.isDark ? CustomColors.yellow.withOpacity(0.3) : CustomColors.yellow,
             size: 30,
           ));
     } else {
       return GestureDetector(
           onTap: () {
-            if (!widget.isDisabled) {
-              _addToFavorites(context, widget.series);
-              setState(() {});
-            }
+            _addToFavorites(context, widget.series);
+            setState(() {});
           },
           child: const Icon(
             Icons.favorite_border,

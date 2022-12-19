@@ -14,11 +14,13 @@ import 'package:tv_series/features/series/data/repositories/series_repository_im
 import 'package:tv_series/features/series/domain/repositories/series_repository.dart';
 import 'package:tv_series/features/series/domain/use_cases/get_popular_series.dart';
 import 'package:tv_series/features/series/domain/use_cases/get_recommended_series.dart';
+import 'package:tv_series/features/series/presentation/blocs/airing_page_bloc/airing_page_bloc.dart';
 import 'package:tv_series/features/series/presentation/blocs/favorites_page_bloc/favorites_page_bloc.dart';
 import 'package:tv_series/features/series/presentation/blocs/home_page_bloc/home_page_bloc.dart';
 
 import 'features/core/network/network_info.dart';
 import 'features/login/domain/usecases/set_user.dart';
+import 'features/series/domain/use_cases/get_airing_series.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -35,6 +37,7 @@ void initFeatures() {
   // BLoC
   serviceLocator.registerFactory(() => LoginBloc(getUser: serviceLocator(), setUser: serviceLocator(), tryToAuthenticate: serviceLocator()));
   serviceLocator.registerFactory(() => HomePageBloc(getPopularSeries: serviceLocator(), getRecommendedSeries: serviceLocator()));
+  serviceLocator.registerFactory(() => AiringPageBloc(getAiringSeries: serviceLocator()));
   serviceLocator.registerFactory(() => FavoritesPageBloc());
 
   // Use Cases
@@ -43,6 +46,7 @@ void initFeatures() {
   serviceLocator.registerLazySingleton(() => TryToAuthenticate(serviceLocator()));
   serviceLocator.registerLazySingleton(() => GetPopularSeries(serviceLocator()));
   serviceLocator.registerLazySingleton(() => GetRecommendedSeries(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetAiringSeries(serviceLocator()));
 
   // Repository
   serviceLocator.registerLazySingleton<UserRepository>(() =>

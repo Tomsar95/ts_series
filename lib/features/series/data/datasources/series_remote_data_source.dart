@@ -12,6 +12,8 @@ abstract class SeriesRemoteDataSource {
 
   Future<List<Series>> getRecommendedSeries();
 
+  Future<List<Series>> getAiringSeries();
+
   Future<Series> getSeriesDetails(int seriesId);
 
 }
@@ -29,6 +31,11 @@ class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
   @override
   Future<List<Series>> getRecommendedSeries() {
     return _getSeriesFromUrl('${Utils.root}/tv/top_rated?api_key=${Utils.apiKey}&language=en-US&page=1}');
+  }
+
+  @override
+  Future<List<Series>> getAiringSeries() {
+    return _getSeriesFromUrl('${Utils.root}/tv/airing_today?api_key=${Utils.apiKey}&language=en-US&page=1}');
   }
 
   @override
