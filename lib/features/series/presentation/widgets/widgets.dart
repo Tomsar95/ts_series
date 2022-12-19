@@ -7,4 +7,6 @@ export 'general/principal_header.dart';
 export 'general/secondary_header.dart';
 export 'general/custom_shader_mask.dart';
 export 'general/add_to_favorites_widget.dart';
+export 'episodes/episode_card.dart';
+export 'episodes/episodes_scroll.dart';
 export 'favorite_series/favorites_series_card_widget.dart';

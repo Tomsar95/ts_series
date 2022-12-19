@@ -16,6 +16,7 @@ class AiringPageBloc extends Bloc<AiringPageEvent, AiringPageState> {
       : super(const AiringPageInitial(isLoading: true)) {
     on<AiringPageEvent>((event, emit) async {
       if (event is GetSeriesEvent) {
+        
         emit(const AiringPageInitial(isLoading: true));
         final airingSeriesOrFailure = await getAiringSeries(NoParams());
         await airingSeriesOrFailure.fold((failure) {

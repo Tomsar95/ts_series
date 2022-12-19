@@ -11,7 +11,7 @@ Widget buildSecondaryHeader({required Function() navigationFunction, required St
   return Padding(
     padding: const EdgeInsets.only(top: 70.0, left: 20),
     child: SizedBox(
-      height: 40,
+      height: 30,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -12,9 +12,13 @@ import 'package:tv_series/features/login/presentation/blocs/login_bloc/login_blo
 import 'package:tv_series/features/series/data/datasources/series_remote_data_source.dart';
 import 'package:tv_series/features/series/data/repositories/series_repository_impl.dart';
 import 'package:tv_series/features/series/domain/repositories/series_repository.dart';
+import 'package:tv_series/features/series/domain/use_cases/get_episodes.dart';
 import 'package:tv_series/features/series/domain/use_cases/get_popular_series.dart';
 import 'package:tv_series/features/series/domain/use_cases/get_recommended_series.dart';
+import 'package:tv_series/features/series/domain/use_cases/get_series_details.dart';
 import 'package:tv_series/features/series/presentation/blocs/airing_page_bloc/airing_page_bloc.dart';
+import 'package:tv_series/features/series/presentation/blocs/details_component_bloc/details_component_bloc.dart';
+import 'package:tv_series/features/series/presentation/blocs/episodes_bloc/episodes_bloc.dart';
 import 'package:tv_series/features/series/presentation/blocs/favorites_page_bloc/favorites_page_bloc.dart';
 import 'package:tv_series/features/series/presentation/blocs/home_page_bloc/home_page_bloc.dart';
 
@@ -38,6 +42,8 @@ void initFeatures() {
   serviceLocator.registerFactory(() => LoginBloc(getUser: serviceLocator(), setUser: serviceLocator(), tryToAuthenticate: serviceLocator()));
   serviceLocator.registerFactory(() => HomePageBloc(getPopularSeries: serviceLocator(), getRecommendedSeries: serviceLocator()));
   serviceLocator.registerFactory(() => AiringPageBloc(getAiringSeries: serviceLocator()));
+  serviceLocator.registerFactory(() => DetailsComponentBloc(getDetails: serviceLocator()));
+  serviceLocator.registerFactory(() => EpisodesBloc(getEpisodes: serviceLocator()));
   serviceLocator.registerFactory(() => FavoritesPageBloc());
 
   // Use Cases
@@ -47,6 +53,8 @@ void initFeatures() {
   serviceLocator.registerLazySingleton(() => GetPopularSeries(serviceLocator()));
   serviceLocator.registerLazySingleton(() => GetRecommendedSeries(serviceLocator()));
   serviceLocator.registerLazySingleton(() => GetAiringSeries(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetSeriesDetails(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetEpisodes(serviceLocator()));
 
   // Repository
   serviceLocator.registerLazySingleton<UserRepository>(() =>

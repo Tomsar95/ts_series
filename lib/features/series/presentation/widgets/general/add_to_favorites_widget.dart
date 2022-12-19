@@ -57,7 +57,7 @@ class _AddToFavoritesState extends State<AddToFavorites> {
     bool exist = false;
     if (Utils.favoriteSeries.isEmpty) return false;
     for (var element in Utils.favoriteSeries) {
-      if (element.name == series.name) {
+      if (element.id == series.id) {
         exist = true;
         break;
       }
