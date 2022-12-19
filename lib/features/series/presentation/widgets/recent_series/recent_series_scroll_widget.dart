@@ -38,7 +38,7 @@ Widget airingSeriesVerticalCard(
     child: Stack(
       children: [
         customShaderMask(
-          bottomFade: 0.2,
+          bottomFade: 0.05,
             child: Container(
               decoration: setDecoration(
                   series[index].backdropPath),
@@ -54,49 +54,62 @@ Widget airingSeriesVerticalCard(
         ),
         Align(
           alignment: Alignment.center,
-          child: GestureDetector(
-            onTap: () {
-              //_goToPopularCarouselPage(series, index, context);
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.width*0.8,
-                  width: MediaQuery.of(context).size.width*0.8,
-                  decoration: setDecoration(series[index].posterPath),
-                  margin: const EdgeInsets.only(top: 10, bottom: 10),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 18),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: Text(
-                      series[index].name,
-                      maxLines: 2,
-                      style: CustomTextStyles.gilroyBoldTitle.copyWith(fontSize: 30),
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                    ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              const SizedBox(height: 20,),
+              Container(
+                height: MediaQuery.of(context).size.width*0.8,
+                width: MediaQuery.of(context).size.width*0.8,
+                decoration: setDecoration(series[index].posterPath),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 14),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: Text(
+                    series[index].name,
+                    maxLines: 2,
+                    style: CustomTextStyles.gilroyBoldTitle.copyWith(fontSize: 30),
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 2.0, bottom: 18),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: Text(
-                      '2 Episodes of 20',
-                      maxLines: 2,
-                      style: CustomTextStyles.gilroyLightTitle.copyWith(fontSize: 14),
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 2.0, bottom: 14),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: Text(
+                    '2 Episodes of 20',
+                    maxLines: 2,
+                    style: CustomTextStyles.gilroyLightTitle.copyWith(fontSize: 14),
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
                   ),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10.0, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Go to view',
+                      style: CustomTextStyles.gilroyLightTitle
+                          .copyWith(fontSize: 20, color: CustomColors.yellow),
+                    ),
+                    const Icon(
+                      Icons.navigate_next,
+                      color: CustomColors.yellow,
+                      size: 26,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ],
