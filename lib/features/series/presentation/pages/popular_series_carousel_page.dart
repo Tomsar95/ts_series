@@ -109,7 +109,7 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 12.0),
-          child: Text('IMBd: ${currentPopularSeries[currentPosition].voteAverage}', style: CustomTextStyles.gilroyLight
+          child: Text('IMDb: ${currentPopularSeries[currentPosition].voteAverage}', style: CustomTextStyles.gilroyLight
               .copyWith(color: CustomColors.darkGray, fontSize: 14),),
         ),
         buildWatchButton(context, null, null),

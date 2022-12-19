@@ -6,3 +6,4 @@ export 'watch_button.dart';
 export 'principal_header.dart';
 export 'secondary_header.dart';
 export 'add_to_favorites_widget.dart';
+export 'favorites_series_card_widget.dart';
