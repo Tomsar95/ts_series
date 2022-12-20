@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tv_series/features/core/utils/custom_arguments.dart';
 import 'package:tv_series/features/login/presentation/pages/login_screen.dart';
+import 'package:tv_series/features/series/presentation/pages/episode_details_page.dart';
+import 'package:tv_series/features/series/presentation/pages/episodes_page.dart';
 import 'package:tv_series/features/series/presentation/pages/home_screen.dart';
 import 'package:tv_series/features/series/presentation/pages/popular_series_carousel_page.dart';
 
@@ -14,10 +16,24 @@ class CustomNavigator {
         case CustomRoutes.login:
           return defaultRoute(const LoginScreen());
         case CustomRoutes.popularCarrousel:
-          final PopularSeriesScreenArguments args = settings.arguments as PopularSeriesScreenArguments;
+          final PopularSeriesScreenArguments args =
+              settings.arguments as PopularSeriesScreenArguments;
           return defaultRoute(PopularSeriesCarouselPage(
             initialPosition: args.initialPosition,
             popularSeries: args.popularSeries,
+          ));
+        case CustomRoutes.episodes:
+          final EpisodesViewArguments args =
+              settings.arguments as EpisodesViewArguments;
+          return defaultRoute(EpisodesPage(
+            showId: args.showId,
+            showNumber: args.seasonNumber,
+          ));
+        case CustomRoutes.episodeDetails:
+          final EpisodeDetailsArguments args =
+              settings.arguments as EpisodeDetailsArguments;
+          return defaultRoute(EpisodesDetailPage(
+            seriesId: args.showId,
           ));
         default:
           return defaultRoute(const LoginScreen());
@@ -33,6 +49,8 @@ MaterialPageRoute defaultRoute<T extends Widget>(T child) {
 
 class CustomRoutes {
   static const String popularCarrousel = "popular_carrousel";
+  static const String episodes = "episodes";
+  static const String episodeDetails = "episode_details";
   static const String home = "home";
   static const String login = "login";
 }

@@ -5,8 +5,8 @@ import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/utils.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
 import 'package:tv_series/features/series/presentation/blocs/home_page_bloc/home_page_bloc.dart';
-import 'package:tv_series/features/series/presentation/widgets/popular_series_scroll_widget.dart';
-import 'package:tv_series/features/series/presentation/widgets/recommended_series_scroll_widget.dart';
+import 'package:tv_series/features/series/presentation/widgets/popular_series/popular_series_scroll_widget.dart';
+import 'package:tv_series/features/series/presentation/widgets/recommended_series/recommended_series_scroll_widget.dart';
 import 'package:tv_series/features/series/presentation/widgets/widgets.dart';
 import 'package:tv_series/injection_container.dart';
 
@@ -58,12 +58,14 @@ class BuildView extends StatefulWidget {
 
 class _BuildViewState extends State<BuildView> {
   late ScrollController _scrollControllerPopularSeries;
+  late ScrollController _scrollControllerRecommendedSeries;
   late List<Series>? listOfPopularSeries;
   late List<Series>? listOfRecommendedSeries;
 
   @override
   void initState() {
     _scrollControllerPopularSeries = ScrollController();
+    _scrollControllerRecommendedSeries = ScrollController();
     listOfPopularSeries = widget.listOfPopularSeries;
     listOfRecommendedSeries = widget.listOfRecommendedSeries;
     super.initState();
@@ -72,7 +74,7 @@ class _BuildViewState extends State<BuildView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 2.0, left: 20),
+      padding: const EdgeInsets.only(top: 2.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -83,12 +85,12 @@ class _BuildViewState extends State<BuildView> {
               ? buildPopularScroll(listOfPopularSeries!, context, _scrollControllerPopularSeries)
               : scrollPlaceHolder(context),
           const Padding(
-            padding: EdgeInsets.only( right: 20.0),
+            padding: EdgeInsets.only( right: 20.0, left: 20),
             child: Divider(color: CustomColors.darkGray),
           ),
           buildTitle('Recommendations'),
-          listOfPopularSeries != null
-              ? buildRecommendedScroll(listOfRecommendedSeries!, context, _scrollControllerPopularSeries)
+          listOfRecommendedSeries != null
+              ? buildRecommendedScroll(listOfRecommendedSeries!, context, _scrollControllerRecommendedSeries)
               : scrollPlaceHolder(context),
         ],
       ),

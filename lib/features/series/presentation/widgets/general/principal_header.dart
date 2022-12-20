@@ -8,7 +8,7 @@ Widget buildPrincipalHeader({required String label, required Function callBack})
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const SizedBox(width: 30.0),
+        const SizedBox(width: 50.0),
         Text(
           label,
           style: CustomTextStyles.gilroyLightTitle.copyWith(fontSize: 20),

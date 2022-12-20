@@ -6,7 +6,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/series/domain/entities/series.dart';
-import 'package:tv_series/features/series/presentation/widgets/secondary_header.dart';
+import 'package:tv_series/features/series/presentation/widgets/general/secondary_header.dart';
 import 'package:tv_series/features/series/presentation/widgets/widgets.dart';
 
 class PopularSeriesCarouselPage extends StatefulWidget {
@@ -109,10 +109,10 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 12.0),
-          child: Text('IMBd: ${currentPopularSeries[currentPosition].voteAverage}', style: CustomTextStyles.gilroyLight
+          child: Text('IMDb: ${currentPopularSeries[currentPosition].voteAverage}', style: CustomTextStyles.gilroyLight
               .copyWith(color: CustomColors.darkGray, fontSize: 14),),
         ),
-        buildWatchButton(context, null, null),
+        buildWatchButton(context: context, showId:  currentPopularSeries[currentPosition].id),
       ],
     );
   }
