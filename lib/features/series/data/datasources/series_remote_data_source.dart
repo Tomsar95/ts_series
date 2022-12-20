@@ -20,6 +20,8 @@ abstract class SeriesRemoteDataSource {
 
   Future<List<Episode>> getEpisodes(int seriesId, int seasonNumber);
 
+  Future<Episode> getEpisode(int seriesId, int seasonNumber, int episodeNumber);
+
 }
 
 class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
@@ -52,6 +54,11 @@ class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
     return _getEpisodesFromUrl('${Utils.root}/tv/$seriesId/season/$seasonNumber?api_key=${Utils.apiKey}&language=en-US&page=1}');
   }
 
+  @override
+  Future<Episode> getEpisode(int seriesId, int seasonNumber, int episodeNumber) {
+    return _getEpisodeFromUrl('${Utils.root}/tv/$seriesId/season/$seasonNumber/episode/$episodeNumber?api_key=${Utils.apiKey}&language=en-US&page=1}');
+  }
+
   Future<List<EpisodeModel>> _getEpisodesFromUrl(String url) async{
     final response = await client.get(
       Uri.parse(url),
@@ -62,6 +69,19 @@ class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
       json.decode(response.body);
       Iterable i = jsonMap['episodes'];
       return i.map((episode) => EpisodeModel.fromJson(episode)).toList().reversed.toList();
+    } else {
+      throw ServerException('Bad Status Code');
+    }
+  }
+
+  Future<EpisodeModel> _getEpisodeFromUrl(String url) async{
+    final response = await client.get(
+      Uri.parse(url),
+      headers: {'Content-Type': 'application/json'},
+    );
+    if(response.statusCode == 200){
+      final json = jsonDecode(response.body);
+      return EpisodeModel.fromJson(json);
     } else {
       throw ServerException('Bad Status Code');
     }

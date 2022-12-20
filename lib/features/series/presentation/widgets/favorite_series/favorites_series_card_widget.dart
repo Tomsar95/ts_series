@@ -26,20 +26,19 @@ Widget favoritesSeriesCard(
               customShaderMask(
                   bottomFade: 0.9,
                   child: Container(
-                    height: imageHeight+addedDimensionsY,
-                    width: imageWidth+addedDimensionsX,
-                    decoration: setDecoration(
-                        series[index].posterPath),
+                    height: imageHeight + addedDimensionsY,
+                    width: imageWidth + addedDimensionsX,
+                    decoration: setDecoration(series[index].posterPath),
                     child: ClipRect(
                       child: BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                         child: Container(
-                          decoration: BoxDecoration(color: CustomColors.black.withOpacity(0.4)),
+                          decoration: BoxDecoration(
+                              color: CustomColors.black.withOpacity(0.4)),
                         ),
                       ),
                     ),
-                  )
-              ),
+                  )),
               Padding(
                 padding: const EdgeInsets.only(top: 14.0, bottom: 14.0),
                 child: Container(
@@ -105,8 +104,13 @@ Widget favoritesSeriesCard(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      buildWatchButton(context, 14, 100),
-                      AddToFavorites(context: context, series: series[index], isDark: true)
+                      buildWatchButton(
+                          context: context,
+                          fontSize: 14,
+                          width: 100,
+                          showId: series[index].id),
+                      AddToFavorites(
+                          context: context, series: series[index], isDark: true)
                     ],
                   ),
                 ),
@@ -115,23 +119,25 @@ Widget favoritesSeriesCard(
           )
         ],
       ),
-      if (showDivider) Positioned(
-        left: MediaQuery.of(context).size.width*0.04,
-        bottom: 0,
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width*0.92,
-            height: 2,
-            color: CustomColors.darkGraySemiTransparent,
+      if (showDivider)
+        Positioned(
+          left: MediaQuery.of(context).size.width * 0.04,
+          bottom: 0,
+          child: Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.92,
+              height: 2,
+              color: CustomColors.darkGraySemiTransparent,
+            ),
           ),
-        ),
-      )
+        )
     ],
   );
 }
 
 bool _shouldShow(int index) {
-  if (Utils.favoriteSeries.length == 1 || index == Utils.favoriteSeries.length-1) return false;
+  if (Utils.favoriteSeries.length == 1 ||
+      index == Utils.favoriteSeries.length - 1) return false;
   return true;
 }
 

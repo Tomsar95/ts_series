@@ -112,7 +112,7 @@ class _PopularSeriesCarouselPageState extends State<PopularSeriesCarouselPage> {
           child: Text('IMDb: ${currentPopularSeries[currentPosition].voteAverage}', style: CustomTextStyles.gilroyLight
               .copyWith(color: CustomColors.darkGray, fontSize: 14),),
         ),
-        buildWatchButton(context, null, null),
+        buildWatchButton(context: context, showId:  currentPopularSeries[currentPosition].id),
       ],
     );
   }

@@ -7,9 +7,15 @@ class PopularSeriesScreenArguments {
   PopularSeriesScreenArguments({required this.popularSeries, required this.initialPosition});
 }
 
-class EpisodeDetailsArguments {
+class EpisodesViewArguments {
   final int showId;
   final int seasonNumber;
 
-  EpisodeDetailsArguments({required this.showId, required this.seasonNumber});
+  EpisodesViewArguments({required this.showId, required this.seasonNumber});
+}
+
+class EpisodeDetailsArguments {
+  final int showId;
+
+  EpisodeDetailsArguments({required this.showId});
 }

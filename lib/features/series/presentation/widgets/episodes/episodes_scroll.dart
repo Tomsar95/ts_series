@@ -20,7 +20,7 @@ Widget buildEpisodesScroll(List<Episode> episodes, BuildContext context, ScrollC
       controller: controller,
       itemCount: episodes.length,
       itemBuilder: (context, index) {
-        return episodeCard(episodes[index]);
+        return episodeCard(episode: episodes[index]);
       },
     ),
   );

@@ -60,4 +60,13 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Left(ServerFailure());
     }
   }
+  @override
+  Future<Either<Failure, Episode>> getEpisode(int seriesId, int seasonNumber, int episodeNumber) async {
+    try {
+      final episodes = await remoteDataSource.getEpisode(seriesId, seasonNumber, episodeNumber);
+      return Right(episodes);
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
 }

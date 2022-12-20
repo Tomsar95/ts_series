@@ -163,6 +163,6 @@ BoxDecoration setDecoration(String? imgPath) {
 }
 
 void _goToView(int id, int seasonNumber, BuildContext context) {
-  Navigator.of(context).pushNamed(CustomRoutes.episodeDetails,
-      arguments: EpisodeDetailsArguments(showId: id, seasonNumber: seasonNumber));
+  Navigator.of(context).pushNamed(CustomRoutes.episodes,
+      arguments: EpisodesViewArguments(showId: id, seasonNumber: seasonNumber));
 }

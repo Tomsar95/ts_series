@@ -73,7 +73,7 @@ Widget recommendedSeriesHorizontalCard(List<Series> series,BuildContext context,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    buildWatchButton(context, 14, 100),
+                    buildWatchButton(context: context, fontSize: 14, width: 100, showId: series[index].id),
                     AddToFavorites(context: context, series: series[index])
                   ],
                 ),

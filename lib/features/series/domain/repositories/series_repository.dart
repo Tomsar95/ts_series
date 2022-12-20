@@ -9,4 +9,5 @@ abstract class SeriesRepository {
   Future<Either<Failure,List<Series>>> getAiringSeries();
   Future<Either<Failure,Series>> getSeriesDetails(int seriesId);
   Future<Either<Failure,List<Episode>>> getEpisodes(int seriesId, int seasonNumber);
+  Future<Either<Failure,Episode>> getEpisode(int seriesId, int seasonNumber, int episodeNumber);
 }

@@ -3,16 +3,32 @@ import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
 import 'package:tv_series/features/series/domain/entities/episode.dart';
 
-Widget episodeCard(Episode episode) {
-  return Padding(
+Widget episodeCard({required Episode episode, Widget? element, Function()? secondaryFn}){
+bool showSecondaryAction = false;
+if (element != null && secondaryFn != null) {
+showSecondaryAction = true;
+}
+
+return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 20.0),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 16.0, top: 16),
-          child: Text('${episode.episodeNumber} Episode', style: CustomTextStyles.gilroyBold,),
+          padding: const EdgeInsets.only(bottom: 20.0, top: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('${episode.episodeNumber} Episode', style: CustomTextStyles.gilroyBold,),
+              showSecondaryAction ? GestureDetector(
+                  onTap: secondaryFn,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 24.0),
+                    child: element!,
+                  )) : const SizedBox(width: 30,),
+            ],
+          ),
         ),
         Container(
           height: 200,
