@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:tv_series/features/core/utils/custom_colors.dart';
 import 'package:tv_series/features/core/utils/text_styles.dart';
-import 'package:tv_series/features/series/domain/entities/series.dart';
-import 'package:tv_series/features/series/presentation/widgets/general/add_to_favorites_widget.dart';
 
 Widget buildSecondaryHeader(
     {required Function() navigationFunction,
+    double? customTopPadding,
     required String title,
     IconData? icon,
     Function()? secondaryFn,
     Widget? addToFavorites}) {
-
   bool showSecondaryAction = false;
   if (icon != null && secondaryFn != null) {
     showSecondaryAction = true;
   }
   bool showAddToFavorites = false;
-  if (addToFavorites != null &&
-      showSecondaryAction == false) {
+  if (addToFavorites != null && showSecondaryAction == false) {
     showAddToFavorites = true;
   }
 
+  bool setCustomPadding = false;
+  if(customTopPadding != null){
+    setCustomPadding = true;
+  }
+
   return Padding(
-    padding: const EdgeInsets.only(top: 70.0, left: 20),
+    padding: EdgeInsets.only(top: setCustomPadding ? customTopPadding! :  70.0, left: 20),
     child: SizedBox(
       height: 40,
       child: Row(
@@ -61,10 +63,11 @@ Widget buildSecondaryHeader(
               : const SizedBox(
                   width: 30,
                 ),
-          if (showAddToFavorites) Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: addToFavorites!,
-          ),
+          if (showAddToFavorites)
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: addToFavorites!,
+            ),
         ],
       ),
     ),

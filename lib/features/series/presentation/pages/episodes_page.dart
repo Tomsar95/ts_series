@@ -73,7 +73,7 @@ class _EpisodesPageState extends State<EpisodesPage> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         buildPrincipalHeader(label: 'Recent', callBack: _closeSession),
-        buildSecondaryHeader(navigationFunction: _goBack, title: 'Popular'),
+        buildSecondaryHeader(navigationFunction: _goBack, title: 'Popular', customTopPadding: 16),
         buildEpisodesScroll(episodes, context, _scrollController),
       ],
     );
